@@ -1,15 +1,13 @@
-# Build your Backend using FastAPI
+# Cox.it test task
 
 ## Pre-requisites
-* Python (3.6+)
+* Python (3.9+)
+* Docker
 
-## Tutorial
-:pushpin: [A 4 Step Tutorial to Serve an ML Model in Production using FastAPI](https://medium.com/@ashmi_banerjee/4-step-tutorial-to-serve-an-ml-model-in-production-using-fastapi-ee62201b3db3)
-## Running the Code
+## Deploy local instance
 
-1. Clone the project
-   * `git clone git@github.com:ashmibanerjee/fastapi-backend.git`
-   * `cd fastapi-backend`
+1. Clone the project 
+   * `git clone ---------------------------------------------`
 2. Create virtual environment
    * `virtualenv venv`
    * `source venv/bin/activate`
@@ -19,30 +17,24 @@
    * `python3 src/main.py`
 5. Server should be running at `http://127.0.0.1:8000/docs`
 
-## Testing the End points
 
-### Running Unit Tests
-1. `pytest`
+## Deploy remote instance (EC2)
 
-### Running the performance Tests using Locust
-
-1. `locust -f tests/performance-tests/locust_test.py 
-`
-2. Tests should appear at `http://127.0.0.1:8089/`
-
-## Further Readings
-
-### FastAPI
-* [First Steps - FastAPI (tiangolo.com)](https://fastapi.tiangolo.com/tutorial/first-steps/)
-* [Serving ML easily with FastAPI (slideshare.net)](https://www.slideshare.net/SebastinRamrezMontao/serving-ml-easily-with-fastapi?from_action=save)
-* [Tutorial - User Guide - Intro - FastAPI (tiangolo.com)](https://fastapi.tiangolo.com/tutorial/)
-* [FastAPI - The Good, the bad and the ugly. - DEV Community](https://dev.to/fuadrafid/fastapi-the-good-the-bad-and-the-ugly-20ob)
-* [An Introduction to Python FastAPI – All About Tech (amalgjose.com)](https://amalgjose.com/2021/02/28/an-introduction-to-python-fastapi/)
-* [Build And Host Fast Data Science Applications Using FastAPI | by Farhad Malik | Towards Data Science](https://towardsdatascience.com/build-and-host-fast-data-science-applications-using-fastapi-823be8a1d6a0#:~:text=Netflix%2C%20Uber%2C%20Microsoft%20amongst%20many,on%20standard%20Python%20type%20hints.)
-* [For fast and secure sites | Jamstack](https://jamstack.org/)
-* [An introduction to the JAMstack: the architecture of the modern web](https://www.freecodecamp.org/news/an-introduction-to-the-jamstack-the-architecture-of-the-modern-web-c4a0d128d9ca/)
-
-### Testing
-* [FastAPI - testing (tiangolo.com)](https://fastapi.tiangolo.com/tutorial/testing/)
-* [https://locust.io/](https://locust.io/)
-* [Performance testing FastAPI ML APIs with Locust](https://rubikscode.net/2022/03/21/performance-testing-fastapi-ml-apis-with-locust/)
+6. Create docker image via cmd command:
+   * `docker build -t image_name:version_5 .`
+7. Push docker image to docker hub:
+   * `docker push <registry-address>:<repository-name>`
+8. Set EC2 instance on [Visit AWS](https://aws.amazon.com)
+9. Connect to EC2 instance shell
+10. Update the package lists by running the command:
+    * `sudo apt update`
+11. Install Docker by running the command: 
+    * `sudo apt install docker.io`
+12. Start the Docker service:
+    * `sudo systemctl start docker`
+13. Enable Docker to start on boot: 
+    * `sudo systemctl enable docker`
+14. Pull docker image from docker hub: 
+    * `docker pull registry-address/repository-name`
+15. Run the Docker container on the EC2 instance: 
+    * `docker run -d -p 80:8000 --name container-name registry-address/repository-name.`
