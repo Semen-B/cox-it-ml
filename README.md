@@ -38,3 +38,11 @@
     * `docker pull registry-address/repository-name`
 15. Run the Docker container on the EC2 instance: 
     * `docker run -d -p 80:8000 --name container-name registry-address/repository-name.`
+
+
+
+## Contributors
+
+- ashmibanerjee <!-- Hidden contributor -->
+- Semen Bondarenko
+
