@@ -7,7 +7,7 @@
 ## Deploy local instance
 
 1. Clone the project 
-   * `git clone ---------------------------------------------`
+   * `git clone (https://github.com/Semen-B/cox-it-ml.git)`
 2. Create virtual environment
    * `virtualenv venv`
    * `source venv/bin/activate`
