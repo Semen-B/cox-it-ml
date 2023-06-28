@@ -40,9 +40,3 @@
     * `docker run -d -p 80:8000 --name container-name registry-address/repository-name.`
 
 
-
-## Contributors
-
-- ashmibanerjee <!-- Hidden contributor -->
-- Semen Bondarenko
-
